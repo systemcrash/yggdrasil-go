@@ -24,7 +24,7 @@ type PeerEntry struct {
 	PublicKey     string        `json:"key"`
 	Port          uint64        `json:"port"`
 	Priority      uint64        `json:"priority"`
-	Multipath     bool          `json:"multipath"`
+	Multipath     bool          `json:"multipath,omitempty"`
 	RXBytes       DataUnit      `json:"bytes_recvd,omitempty"`
 	TXBytes       DataUnit      `json:"bytes_sent,omitempty"`
 	Uptime        float64       `json:"uptime,omitempty"`

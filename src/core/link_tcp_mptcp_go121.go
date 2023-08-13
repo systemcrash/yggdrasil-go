@@ -22,8 +22,11 @@ func isMPTCP(c net.Conn) bool {
 		mp, _ := tc.MultipathTCP()
 		return mp
 	case *tls.Conn:
-		mp, _ := tc.NetConn().(*net.TCPConn).MultipathTCP()
-		return mp
+		if tc, ok := tc.NetConn().(*net.TCPConn); ok {
+			mp, _ := tc.MultipathTCP()
+			return mp
+		}
+		return false
 	default:
 		return false
 	}
