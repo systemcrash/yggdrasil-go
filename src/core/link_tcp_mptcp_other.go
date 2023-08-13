@@ -12,3 +12,7 @@ func setMPTCPForDialer(d *net.Dialer) {
 func setMPTCPForListener(lc *net.ListenConfig) {
 	// Not supported on versions under Go 1.21
 }
+
+func isMPTCP(c net.Conn) bool {
+	return false
+}
